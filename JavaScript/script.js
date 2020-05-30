@@ -3,6 +3,7 @@ const searchBtn = document.getElementById("search-button");
 const cityHistory = document.getElementById("city-history");
 const weatherCurretn = document.getElementById("current-weather");
 const forecastRow = document.getElementById("forecast-row");
+const clearBtn = document.getElementById("clear-button");
 
 const APIKEY = '44f2606e3cb5ec89a96624d7cd8621dc';
 
@@ -14,6 +15,8 @@ const weatherIconQuery = (iconCode) => `https://openweathermap.org/img/wn/${icon
 
 let cityList = JSON.parse(localStorage.getItem('city')) || [];
 
+/*calls function so it could display stored cities on page load */
+updateCityList();
 
 /* search button */
 searchBtn.addEventListener('click', function() {
@@ -26,6 +29,14 @@ searchBtn.addEventListener('click', function() {
     updateWeather(search);
     updateForecast(search);
     updateCityList();
+})
+/*delete city list button */
+clearBtn.addEventListener('click', function(){
+    cityList = []
+
+    localStorage.setItem('city', JSON.stringify(cityList));
+
+    updateCityList()
 })
 /* clear function */
 function clear(el) {
