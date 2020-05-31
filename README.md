@@ -1,2 +1,2 @@
 # Weather-Dashboard
-![Demo image](/Assets/weather_dashboard.png)
+![Demo image](Assets/weather_dashboard.PNG)
